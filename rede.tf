@@ -1,5 +1,5 @@
 module "vpc-acl" {
-  source                     = "git::ssh://calixtofutura@bitbucket.org/futura_plataforma/terraformfuturatemplatenetwork.git"
+  source                     = "git::https://github.com/rogerio-calixto/aws-network-template.git?ref=master"
   vpc_name                   = local.vpc.name
   subnet_name                = local.vpc.subnet_name
   route_table_name           = local.vpc.routetable_name

@@ -36,19 +36,19 @@ resource "aws_security_group" "sg-server01" {
 }
 
 module "server01" {
-  source              = "git::ssh://calixtofutura@bitbucket.org/futura_plataforma/terraformfuturatemplateinstance.git"
+  source              = "git::https://github.com/rogerio-calixto/aws-instance-template.git?ref=master"
   region              = var.regiao
   project             = local.projeto
   environment         = var.ambiente
   createdby           = local.criador
   ami                 = "ami-0427090fd1714168b"
   instance-type       = "t3.micro"
-  keypair-name        = "Futura-IasC"
+  keypair-name        = "keypair-pub-acl"
   vpc-id              = module.vpc-acl.aws_vpc_id
   subnet-id           = module.vpc-acl.public-subnet_ids[0]
   sg-id               = aws_security_group.sg-server01.id
   associate-public-ip = true
-  instance-name       = "server01-${var.ambiente}"
+  instance-name       = "pub-acl-server-${var.ambiente}"
 }
 
 # Servidor-Privado
@@ -97,16 +97,16 @@ resource "aws_security_group" "sg-server02" {
 }
 
 module "server02" {
-  source              = "git::ssh://calixtofutura@bitbucket.org/futura_plataforma/terraformfuturatemplateinstance.git"
+  source              = "git::https://github.com/rogerio-calixto/aws-instance-template.git?ref=master"
   region              = var.regiao
   project             = local.projeto
   environment         = var.ambiente
   createdby           = local.criador
   ami                 = "ami-0427090fd1714168b"
   instance-type       = "t3.micro"
-  keypair-name        = "Futura-IasC"
+  keypair-name        = "keypair-pvt-acl"
   vpc-id              = module.vpc-acl.aws_vpc_id
   subnet-id           = module.vpc-acl.private-subnet_ids[0]
   sg-id               = aws_security_group.sg-server02.id
-  instance-name       = "server02-${var.ambiente}"
+  instance-name       = "pvt-acl-server-${var.ambiente}"
 }

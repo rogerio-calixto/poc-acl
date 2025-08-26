@@ -36,7 +36,6 @@ resource "aws_network_acl_rule" "acl_pub_allow_ingress_icmp_test" {
     egress = false
     protocol = "icmp"
     rule_action = "allow"
-    # cidr_block = "0.0.0.0/0"
     cidr_block = "${local.vpc.cidr_block}"
     from_port = -1
     to_port = -1
@@ -94,7 +93,6 @@ resource "aws_network_acl_rule" "acl_pub_allow_egress_icmp_test" {
     egress = true
     protocol = "icmp"
     rule_action = "allow"
-    # cidr_block = "0.0.0.0/0"
     cidr_block = "${local.vpc.cidr_block}"
     from_port = -1
     to_port = -1

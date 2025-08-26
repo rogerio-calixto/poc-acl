@@ -1,0 +1,24 @@
+{
+  "name": "projeto_terraform",
+  "version": "1.0.0",
+  "description": "Infra Estrutura Fargate para Billing Tags",
+  "main": "index.js",
+  "scripts": {
+    "clear": "cls",
+	  "init-branch": "terraform init -reconfigure",
+    "format": "terraform fmt -recursive",
+    "update_templates": "terraform get -update",
+    "validate": "terraform validate",
+    "plan": "terraform plan -out=\"tfplan.out\"",
+    "apply": "terraform apply \"tfplan.out\"",
+    "infra_costs": "infracost breakdown --path=. --show-skipped --terraform-var-file prd.tfvars",
+    "output": "terraform output -json"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Rogerio Calixto",
+  "license": "ISC",
+  "homepage": ""
+}
