@@ -11,7 +11,7 @@
     "validate": "terraform validate",
     "plan": "terraform plan -out=\"tfplan.out\"",
     "apply": "terraform apply \"tfplan.out\"",
-    "infra_costs": "infracost breakdown --path=. --show-skipped --terraform-var-file prd.tfvars",
+    "infra_costs": "infracost breakdown --path=. --show-skipped",
     "output": "terraform output -json"
   },
   "repository": {
